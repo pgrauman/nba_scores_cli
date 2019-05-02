@@ -194,21 +194,21 @@ class NBAScoresCLI(object):
         for i, line in enumerate(game.box_score().split('\n')):
             self._write_centered_text(4+i, line)
 
-        self._write_center_column(10, game.away_abbr, color=curses.color_pair(1))
-        self._write_center_column(11, f' FG% : {game.away_fg_pct}', color=curses.color_pair(1))
-        self._write_center_column(12, f' FT% : {game.away_ft_pct}', color=curses.color_pair(1))
-        self._write_center_column(13, f'3pt% : {game.away_fg3_pct}', color=curses.color_pair(1))
-        self._write_center_column(14, f' Ast : {game.away_ast}', color=curses.color_pair(1))
-        self._write_center_column(15, f' Reb : {game.away_reb}', color=curses.color_pair(1))
-        self._write_center_column(16, f'  TO : {game.away_tov}', color=curses.color_pair(1))
+        self._write_center_column(10, game.away_abbr)
+        self._write_center_column(11, f' FG% : {game.away_fg_pct}')
+        self._write_center_column(12, f' FT% : {game.away_ft_pct}')
+        self._write_center_column(13, f'3pt% : {game.away_fg3_pct}')
+        self._write_center_column(14, f' Ast : {game.away_ast}')
+        self._write_center_column(15, f' Reb : {game.away_reb}')
+        self._write_center_column(16, f'  TO : {game.away_tov}')
 
-        self._write_center_column(10, game.home_abbr, column='right', color=curses.color_pair(1))
-        self._write_center_column(11, f' FG% : {game.home_fg_pct}', column='right', color=curses.color_pair(1))
-        self._write_center_column(12, f' FT% : {game.home_ft_pct}', column='right', color=curses.color_pair(1))
-        self._write_center_column(13, f'3pt% : {game.home_fg3_pct}', column='right', color=curses.color_pair(1))
-        self._write_center_column(14, f' Ast : {game.home_ast}', column='right', color=curses.color_pair(1))
-        self._write_center_column(15, f' Reb : {game.home_reb}', column='right', color=curses.color_pair(1))
-        self._write_center_column(16, f'  TO : {game.home_tov}', column='right', color=curses.color_pair(1))
+        self._write_center_column(10, game.home_abbr, column='right')
+        self._write_center_column(11, f' FG% : {game.home_fg_pct}', column='right')
+        self._write_center_column(12, f' FT% : {game.home_ft_pct}', column='right')
+        self._write_center_column(13, f'3pt% : {game.home_fg3_pct}', column='right')
+        self._write_center_column(14, f' Ast : {game.home_ast}', column='right')
+        self._write_center_column(15, f' Reb : {game.home_reb}', column='right')
+        self._write_center_column(16, f'  TO : {game.home_tov}', column='right')
 
 
     def _display_all_games(self):
