@@ -219,7 +219,7 @@ class NBAScoresCLI(object):
         self._write_centered_text(start_x, 'GAMES', curses.color_pair(2))         
         for i, game in enumerate(games):
             game_str = f'({i}) {game.topline}'
-            self._write_centered_text(start_x+1, game_str, curses.color_pair(1))
+            self._write_centered_text(start_x+1+i, game_str, curses.color_pair(1))
 
     def _display_status_bar(self):
         '''
