@@ -215,7 +215,7 @@ class NBAScoresCLI(object):
         '''
         Display list of games, their scores, and status
         '''
-        start_x = 5
+        start_x = 2
         self._write_centered_text(start_x, 'GAMES', curses.color_pair(2))         
         for i, game in enumerate(games):
             game_str = f'({i}) {game.topline}'
