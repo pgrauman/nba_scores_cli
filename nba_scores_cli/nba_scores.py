@@ -215,10 +215,11 @@ class NBAScoresCLI(object):
         '''
         Display list of games, their scores, and status
         '''
-        self.stdscr.addstr(0, 0, 'GAMES', curses.color_pair(2))         
+        start_x = 5
+        self._write_centered_text(start_x, 'GAMES', curses.color_pair(2))         
         for i, game in enumerate(games):
             game_str = f'({i}) {game.topline}'
-            self.stdscr.addstr(i+1, 0, game_str, curses.color_pair(1))
+            self._write_centered_text(start_x+1, game_str, curses.color_pair(1))
 
     def _display_status_bar(self):
         '''
@@ -230,7 +231,7 @@ class NBAScoresCLI(object):
         self.stdscr.addstr(self.height-1, len(statusbarstr), " " * (self.width - len(statusbarstr) - 1))
         self.stdscr.attroff(curses.color_pair(3))
 
-    def _write_centered_text(self, y, text):
+    def _write_centered_text(self, y, text, color=None):
         '''
         Write text at centered in screen
 
@@ -239,7 +240,10 @@ class NBAScoresCLI(object):
             text (str): string to center
         '''
         x_start = int((self.width // 2) - (len(text) // 2) - len(text) % 2)
-        self.stdscr.addstr(y, x_start, text)
+        if color:
+            self.stdscr.addstr(y, x_start, text, color)
+        else:
+            self.stdscr.addstr(y, x_start, text)
 
     def _write_center_column(self, y, text, column='left', color=None):
         '''
