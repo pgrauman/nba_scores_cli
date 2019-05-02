@@ -44,3 +44,4 @@ Once app is launched can navigate to game details using number keys, can go back
 
 ## Thanks to:
 * [nba_py](https://github.com/seemethere/nba_py) for a good reference to the api
+* [bttmly/nba](https://github.com/bttmly/nba/blob/master/doc/stats.md) for another good api reference
