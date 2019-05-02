@@ -6,9 +6,10 @@ This is a small cli app that will check and display NBA scores for you. On the b
 
 ## Prerequisites
 * python3
+* virtualenv
 
 ## Utilization
-```
+``` bash
 # Build environment
 make develop
 
