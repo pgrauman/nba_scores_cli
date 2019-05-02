@@ -3,3 +3,5 @@ __pycache__
 *.egg-info
 *.zip
 docs/_build
+.terminalizer_configs/
+*.yml
