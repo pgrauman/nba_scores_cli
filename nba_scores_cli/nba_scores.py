@@ -124,6 +124,7 @@ class NBAScoresCLI(object):
     def __init__(self, stdscr, date, games, refresh_delay=30):
         k = 0
         self.refresh_delay = refresh_delay
+        self.date = date
         self.stdscr = stdscr
         self.focus = -1
         self.extra_status_text = '# to select game'
@@ -150,7 +151,7 @@ class NBAScoresCLI(object):
 
             # Update data
             if int(time.time()) % 5 == 0:
-                d = get_nba_scoreboard(date, offset=offset)
+                d = get_nba_scoreboard(self.date, offset=offset)
                 games = [NBAGame(d, game['GAME_ID']) for game in d['GameHeader']]
 
             # Check for keyboard inputs
@@ -172,7 +173,6 @@ class NBAScoresCLI(object):
 
             # Update data
             if int(time.time()) % self.refresh_delay == 0:
-                self.extra_status_text = "adfadfadsf"
                 stdscr.nodelay(1)
                 self.stdscr.refresh()
                 stdscr.nodelay(0)
@@ -216,7 +216,7 @@ class NBAScoresCLI(object):
         Display list of games, their scores, and status
         '''
         start_x = 2
-        self._write_centered_text(start_x, 'GAMES', curses.color_pair(2))         
+        self._write_centered_text(start_x, f'GAMES - {self.date}', curses.color_pair(2))         
         for i, game in enumerate(games):
             game_str = f'({i}) {game.topline}'
             self._write_centered_text(start_x+1+i, game_str, curses.color_pair(1))
